@@ -1,17 +1,24 @@
 <html ng-app="HttpDataStoreTester">
 <head>
 	<title>HTTP DataStore Tester</title>
+
+	<link rel="stylesheet" type="text/css" href="bower_components/flexiJson/jsoneditor.css">
 </head>
 <body>
 	
-	<div ng-controller="TesterCtrl"></div>
+	<div ng-controller="TesterCtrl">
+		<json-edit json="entity"></json-edit>
+		{{entity|json}}
+	</div>
 
 	<script type="text/javascript" src="bower_components/json3/lib/json3.min.js"></script>
 	<script type="text/javascript" src="bower_components/h.dataStore/h.dataStore.min.js"></script>
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="bower_components/flexiJson/jquery.jsoneditor.min.js"></script>
 	<script type="text/javascript" src="bower_components/lodash/dist/lodash.compat.min.js"></script>
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 
 	<script type="text/javascript" src="scripts/app.js"></script>
+	<script type="text/javascript" src="scripts/jsonEditDrtv.js"></script>
 </body>
 </html>

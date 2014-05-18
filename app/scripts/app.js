@@ -11,6 +11,7 @@
 	}])
 	.controller('TesterCtrl', ['$scope', 'store', function($scope, store){
 		store.QueryMeta(hds.queryWithOr()).then(log);
+		$scope.entity = {"Name": "Hintee"};
 	}]);
 
 

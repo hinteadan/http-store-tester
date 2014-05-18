@@ -6,7 +6,8 @@
     "json3": "~3.3.1",
     "jquery": "~2.1.0",
     "lodash": "~2.4.1",
-	  "h.dataStore": "https://github.com/hinteadan/h.dataStore.client.js.git"
+	  "h.dataStore": "https://github.com/hinteadan/h.dataStore.client.js.git",
+    "flexiJson": "https://github.com/DavidDurman/FlexiJsonEditor.git"
   },
   "devDependencies": {
 
