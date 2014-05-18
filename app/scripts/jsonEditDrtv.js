@@ -7,6 +7,9 @@
 	.directive('jsonEdit', [function(){
 
 		function renderJsonEditor(elementJq, jsonData, options){
+			if(!jsonData){
+				return;
+			}
 			elementJq.jsonEditor(jsonData, options);
 		}
 

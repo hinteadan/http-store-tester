@@ -9,13 +9,14 @@
 	<div ng-controller="TesterCtrl">
 		<button ng-click="createEntity()">Create entity</button>
 
-		<fieldset ng-if="newEntity">
+		<fieldset ng-show="newEntity">
 			<legend>Add new entity</legend>
 			<label>Metadata</label>
 			<json-edit json="newEntity.Meta"></json-edit>
 			<label>Payload</label>
 			<json-edit json="newEntity.Data"></json-edit>
 			<button ng-click="storeEntity()">Store</button>
+			<button ng-click="newEntity = null">Cancel</button>
 		</fieldset>
 
 		<table>
