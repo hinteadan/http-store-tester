@@ -7,8 +7,29 @@
 <body>
 	
 	<div ng-controller="TesterCtrl">
-		<json-edit json="entity"></json-edit>
-		{{entity|json}}
+		<button ng-click="createEntity()">Create entity</button>
+
+		<fieldset ng-if="newEntity">
+			<legend>Add new entity</legend>
+			<label>Metadata</label>
+			<json-edit json="newEntity.Meta"></json-edit>
+			<label>Payload</label>
+			<json-edit json="newEntity.Data"></json-edit>
+			<button ng-click="storeEntity()">Store</button>
+		</fieldset>
+
+		<table>
+			<tbody>
+				<tr ng-repeat="entity in entities">
+					<td>{{entity.Key}}</td>
+					<td>{{entity.Value|json}}</td>
+					<td>
+						<button ng-click="delete(entity.Key)">Delete</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
 	</div>
 
 	<script type="text/javascript" src="bower_components/json3/lib/json3.min.js"></script>
