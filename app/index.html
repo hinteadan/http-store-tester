@@ -6,8 +6,9 @@
 </head>
 <body>
 	
-	<div ng-controller="TesterCtrl">
+	<div ng-controller="TesterCtrl" ng-init="isQueryPanelVisible = false">
 		<button ng-click="createEntity()">Create entity</button>
+		<button ng-click="isQueryPanelVisible = true">Query store</button>
 
 		<fieldset ng-show="newEntity">
 			<legend>Add new entity</legend>
@@ -17,6 +18,10 @@
 			<json-edit json="newEntity.Data"></json-edit>
 			<button ng-click="storeEntity()">Store</button>
 			<button ng-click="newEntity = null">Cancel</button>
+		</fieldset>
+
+		<fieldset ng-show="isQueryPanelVisible">
+			<button ng-click="isQueryPanelVisible = false">Cancel</button>
 		</fieldset>
 
 		<table>
