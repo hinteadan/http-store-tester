@@ -7,8 +7,11 @@
 <body>
 	
 	<div ng-controller="TesterCtrl" ng-init="isQueryPanelVisible = false">
-		<button ng-click="createEntity()">Create entity</button>
-		<button ng-click="isQueryPanelVisible = true">Query store</button>
+		<fieldset>
+			<legend>Operations</legend>
+			<button ng-click="createEntity()">Create entity</button>
+			<button ng-click="isQueryPanelVisible = true">Query store</button>
+		</fieldset>
 
 		<fieldset ng-show="newEntity">
 			<legend>Add new entity</legend>
@@ -21,20 +24,22 @@
 		</fieldset>
 
 		<fieldset ng-show="isQueryPanelVisible">
+			<button ng-click="queryAll()">All</button>
 			<button ng-click="isQueryPanelVisible = false">Cancel</button>
+			<div ng-show="queryResult.results">
+				<table>
+					<tbody>
+						<tr ng-repeat="entity in queryResult.results">
+							<td>{{entity.Key}}</td>
+							<td>{{entity.Value|json}}</td>
+							<td>
+								<button ng-click="delete(entity.Key)">Delete</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</fieldset>
-
-		<table>
-			<tbody>
-				<tr ng-repeat="entity in entities">
-					<td>{{entity.Key}}</td>
-					<td>{{entity.Value|json}}</td>
-					<td>
-						<button ng-click="delete(entity.Key)">Delete</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
 
 	</div>
 

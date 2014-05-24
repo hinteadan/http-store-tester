@@ -30,16 +30,31 @@
 			}
 			store.Delete(entityId).then($scope.refreshBlotter);
 		};
-		$scope.refreshBlotter = function(){
-			store.QueryMeta(hds.queryWithAnd()).then(function(result){
-				$scope.entities = result.data;
+		$scope.queryMeta = function(query){
+			// store.QueryMeta(hds.queryWithAnd()).then(function(result){
+			store.QueryMeta(query).then(function(result){
+				$scope.queryResult.isMetaQuery = true;
+				$scope.queryResult.results = result.data;
+				log(result);
+				$scope.$apply();
+			});
+		};
+		$scope.query = function(query){
+			// store.QueryMeta(hds.queryWithAnd()).then(function(result){
+			store.Query(query).then(function(result){
+				$scope.queryResult.isMetaQuery = false;
+				$scope.queryResult.results = result.data;
 				log(result);
 				$scope.$apply();
 			});
 		};
 
-		$scope.refreshBlotter();
 		$scope.entity = {"Name": "Hintee"};
+		$scope.queryResult = {
+			isMetaQuery: true,
+			results: null
+		};
+		$scope.queryAll = function(){ $scope.queryMeta(hds.queryWithAnd()); };
 		$scope.log = resultsLog;
 	}]);
 
